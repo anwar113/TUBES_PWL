@@ -30,63 +30,86 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            <li class="nav-item{{ Route::is('home2') ? 'active' : '' }}">
+            @can('user-display')
                 <a class="nav-link" href="{{url('/home')}}">Home</a>
+                @endcan
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @can('user-display')
+                <a class="nav-link dropdown-toggle {{ Route::is('men') ? 'active' : '' }} " href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Men
                 </a>
+                
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                    <a class="dropdown-item" href="{{url('/menbajupendek')}}">Kaos Lengan Pendek</a>
-                    <a class="dropdown-item" href="{{url('/menbajupanjang')}}">Kaos Lengan Panjang</a>
-                    <a class="dropdown-item" href="{{url('/mensweater')}}">Sweater</a>
-                    <a class="dropdown-item" href="{{url('/menjaket')}}">Jacket</a>
+                    <a class="dropdown-item {{ Route::is('menbajupendek') ? 'active' : '' }}" href="{{url('/menbajupendek')}}">Kaos Lengan Pendek</a>
+                    <a class="dropdown-item {{ Route::is('menbajupanjang') ? 'active' : '' }}" href="{{url('/menbajupanjang')}}">Kaos Lengan Panjang</a>
+                    <a class="dropdown-item {{ Route::is('mensweater') ? 'active' : '' }}" href="{{url('/mensweater')}}">Sweater</a>
+                    <a class="dropdown-item {{ Route::is('menjaket') ? 'active' : '' }}" href="{{url('/menjaket')}}">Jacket</a>
                 </div>
+                @endcan
             </li>
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @can('user-display')
+            <a class="nav-link dropdown-toggle {{ Route::is('women') ? 'active' : '' }}" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Women
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="{{url('/womenbajupendek')}}">Kaos Lengan Pendek</a>
-                <a class="dropdown-item" href="{{url('/womenbajupanjang')}}">Kaos Lengan Panjang</a>
-                <a class="dropdown-item" href="{{url('/womensweater')}}">Sweater</a>
-                <a class="dropdown-item" href="{{url('/womenjaket')}}">Jacket</a>
-                <a class="dropdown-item" href="{{url('/womengamis')}}">Gamis</a>
+                <a class="dropdown-item {{ Route::is('womenbajupendek') ? 'active' : '' }}" href="{{url('/womenbajupendek')}}">Kaos Lengan Pendek</a>
+                <a class="dropdown-item {{ Route::is('womenbajupanjang') ? 'active' : '' }}" href="{{url('/womenbajupanjang')}}">Kaos Lengan Panjang</a>
+                <a class="dropdown-item {{ Route::is('womensweater') ? 'active' : '' }}" href="{{url('/womensweater')}}">Sweater</a>
+                <a class="dropdown-item {{ Route::is('womenjaket') ? 'active' : '' }}" href="{{url('/womenjaket')}}">Jacket</a>
+                <a class="dropdown-item {{ Route::is('womengamis') ? 'active' : '' }}" href="{{url('/womengamis')}}">Gamis</a>
             </div>
+            @endcan
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          @can('user-display')
+            <a class="nav-link dropdown-toggle {{ Route::is('kid') ? 'active' : '' }}" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Kids
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-                <a class="dropdown-item" href="{{url('/kidsbajupendek')}}">Kaos Lengan Pendek</a>
-                <a class="dropdown-item" href="{{url('/kidsbajupanjang')}}">Kaos Lengan Panjang</a>
-                <a class="dropdown-item" href="{{url('/kidssweater')}}">Sweater</a>
-                <a class="dropdown-item" href="{{url('/kidsjaket')}}">Jacket</a>
+                <a class="dropdown-item {{ Route::is('kidsbajupendek') ? 'active' : '' }}" href="{{url('/kidsbajupendek')}}">Kaos Lengan Pendek</a>
+                <a class="dropdown-item {{ Route::is('kidsbajupanjang') ? 'active' : '' }}" href="{{url('/kidsbajupanjang')}}">Kaos Lengan Panjang</a>
+                <a class="dropdown-item {{ Route::is('kidsweater') ? 'active' : '' }}" href="{{url('/kidssweater')}}">Sweater</a>
+                <a class="dropdown-item {{ Route::is('kidsjaket') ? 'active' : '' }}" href="{{url('/kidsjaket')}}">Jacket</a>
             </div>
+            @endcan
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ Route::is('sale') ? 'active' : '' }}">
+          @can('user-display')
             <a class="nav-link" href="{{url('/sale')}}">Sale</a>
+            @endcan
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ Route::is('howToBuy') ? 'active' : '' }}">
+          @can('user-display')
             <a class="nav-link" href="{{url('/howToBuy')}}">How to Buy</a>
+            @endcan
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ Route::is('baru') ? 'active' : '' }}">
+            @can('manage')
             <a class="nav-link" href="{{url('/baru')}}">Manage Produk Terbaru</a>
+            @endcan
           </li>
-          <li class="nav-item">
+          <li class="nav-item{{ Route::is('women') ? 'active' : '' }}">
+            @can('manage')
             <a class="nav-link" href="{{url('/women')}}">Manage Produk Women</a>
+            @endcan
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ Route::is('men') ? 'active' : '' }}">
+            @can('manage')
             <a class="nav-link" href="{{url('/men')}}">Manage Produk Men</a>
+            @endcan
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ Route::is('kid') ? 'active' : '' }}">
+            @can('manage')
             <a class="nav-link" href="{{url('/kid')}}">Manage Produk Kid</a>
+            @endcan
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ Route::is('manageTransaksi') ? 'active' : '' }}">
+          @can('manage')
             <a class="nav-link" href="{{url('/manageTransaksi')}}">Manage Transaksi</a>
+            @endcan
           </li>
         </ul>
       </div>

@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'ManageController@home');
-Route::get('/home', 'ManageController@tampilTerbaru');
+Route::get('/home2', 'ManageController@home')->name('home2');
+Route::get('/home2', 'ManageController@tampilTerbaru');
 
 //---Produk Men
 Route::get('/menbajupendek', 'WebController@menbajupendek');
@@ -157,7 +157,7 @@ Route::get('/baru/delete/{id}', 'ManageController@deleteTerbaru');
 Route::get('/baru/cetak_pdf', 'ManageController@cetakTerbaru');
 
 //--------------Men--------------------------
-Route::get('/men', 'ManageController@men');
+Route::get('/men', 'ManageController@men')->name('men');
 //route untuk menampilkan halaman tambah data
 Route::get('/men/add', 'ManageController@addMen');
 //route untuk memproses penambahan data
@@ -220,5 +220,7 @@ route::get('/men/transaksi',function(){
 });
 route::post('/men/transaksi/create','ManageController@createTransaksi');
 Auth::routes();
-
+route::get('/',function(){
+    return view('auth/login');
+});
 Route::get('/home', 'HomeController@index')->name('home');

@@ -31,7 +31,7 @@
 		    <tr>
                 <td>{{$t->nama_produk}}</td>
                 <td>{{$t->kategori_produk}}</td>
-                <td>{{$t->gambar}}</td>
+                <td><img width="150px" src="{{asset('storage/'.$t->gambar)}}"></td>
                 <td>{{$t->harga}}</td>
                 <td>{{$t->nama_pembeli}}</td>
                 <td>{{$t->no_telepon_pembeli}}</td>
@@ -40,10 +40,10 @@
                 <td>{{$t->ukuran}}</td>
                 <td>{{$t->total_harga}}</td>
                 <td>{{$t->status}}</td>
-                <td><img width="150px" src="{{asset('storage/'.$t->gambar)}}"></td>
+                
                 <td>
-                    <h5><a href="kid/edit/{{ $k->id }}" class="badge badge-warning"><i class="fas fa-edit"></i> Edit</a>
-                    <a href="kid/delete/{{ $k->id }}" class="badge badge-danger"><i class="fas fa-trash"></i> Hapus</a></h5>
+                    <h5><a href="kid/edit/{{ $t->id }}" class="badge badge-warning"><i class="fas fa-edit"></i> Edit</a>
+                    <a href="kid/delete/{{ $t->id }}" class="badge badge-danger"><i class="fas fa-trash"></i> Hapus</a></h5>
                 </td>
             </tr>
 	        @endforeach

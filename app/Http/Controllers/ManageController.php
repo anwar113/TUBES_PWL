@@ -12,9 +12,19 @@ use PDF;
 
 class ManageController extends Controller
 {
+//gate
+public function __construct()
+{
+ //$this->middleware('auth');
+ $this->middleware(function($request, $next){
+ if(Gate::allows('user-display')) return $next($request);
+ abort(403, 'Anda tidak memiliki cukup hak akses');
+ });
+}
+
     //home
     public function home(){
-        return view('home');
+        return view('home2');
     }
 
 //------------------------Baru----------------------------
@@ -22,7 +32,7 @@ class ManageController extends Controller
     public function tampilTerbaru()
     {
         $baru = Baru::all();
-        return view ('home', ['baru' => $baru]);
+        return view ('home2', ['baru' => $baru]);
 
         $value = Cache::remember('barus', $seconds, function () {
             return DB::table('barus')->get();
@@ -361,12 +371,19 @@ class ManageController extends Controller
         return view('addMenTransaksi',['men'=>$men]);
     }
     //proses tambah transaksi
-    public function createTransaksi(Request $Request){
+    public function createTransaksi(Request $request){
         //$total_harga==$request->harga*$request->jumlah_beli;
         //if($request->file('gambar')) {
         //    $image_name = $request->file('gambar')->store('images','public');
         //}
         transaksi::create([
+            'id_produk'=>$request->id_produk,
+            'nama_produk'=>$request->nama_produk,
+            'kategori_produk'=>$request->kategori_produk,
+            'gambar'=>$request->gambar,
+            'harga'=>$request->harga,
+            'status'=>$request->status,
+            'total_harga'=>$request->total_harga,
             'ukuran' => $request->ukuran,
             'jumlah_beli'=> $request->jumlah_beli,
             'nama_pembeli'=> $request->nama_pembeli,
