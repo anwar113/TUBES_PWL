@@ -224,3 +224,12 @@ route::get('/',function(){
     return view('auth/login');
 });
 Route::get('/home2', 'ManageController@tampilTerbaru')->name('home');
+//-------manage user--------
+Route::get('/manageUser', 'ManageController@manageUser');
+Route::get('/editUser/{id}','ManageController@editUser');
+Route::post('/updateUser/{id}','ManageController@updateUser');  
+Route::get('/deleteUser/{id}','ManageController@deleteUser'); 
+Route::get('/addUser','ManageController@addUser');
+Route::post('/createUser','ManageController@createUser');
+Route::get('/user/cetak_pdf', 'ManageController@cetakUser');
+

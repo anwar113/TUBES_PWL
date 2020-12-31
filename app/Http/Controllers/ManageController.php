@@ -8,6 +8,7 @@ use App\Women;
 use App\Men;
 use App\Kids;
 use App\transaksi;
+use App\User;
 use PDF;
 
 class ManageController extends Controller
@@ -392,6 +393,80 @@ public function __construct()
         ]);
         return redirect('/transaksi/sukses');
     }
+
+
+    //----------------User
+    
+    public function manageUser()
+    {
+        $user = User::all();
+        return view ('manageUser', ['user' => $user]);
+
+        $value = Cache::remember('users', $seconds, function () {
+            return DB::table('users')->get();
+        });
+    }
+    //halaman tambah data produk baru
+    public function addUser()
+    {
+        return view('addUser');
+    } 
+    //proses penambahan data produk baru
+  public function createUser(Request $request)
+    {
+        if($request->file('gambar')) {
+            $image_name = $request->file('gambar')->store('images','public');
+        }
+
+        Baru::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'roles'=>$request->roles,
+            'gambar' => $image_name,
+        ]);
+        return redirect('/manageUser');
+    } 
+    //halaman edit data produk baru
+    
+    public function editUser($id)
+    {
+        $user = user::find($id);
+        return view('editUser',['user'=>$user]);
+    }
+    //proses update data baru
+    public function updateUser($id, Request $request)
+    {
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->roles=$request->roles;
+        
+        if($user->gambar && file_exists(storage_path('app/public/' . $user->gambar)))
+        {
+            \Storage::delete('public/'.$user->gambar);
+        }
+        $image_name = $request->file('gambar')->store('images', 'public');
+        $user->gambar = $image_name;
+
+        $user->save();
+        return redirect('/manageUser');
+    }
+    
+    //proses hapus data produk baru
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/manageUser');
+    }
+    //cetak pdf produk baru
+    public function cetakUser() {
+        $user = User::all();
+        $pdf = PDF::loadview('user_pdf',['user'=>$user]);
+        return $pdf->stream();
+    }
+    
+
 }
 
 
