@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home2', 'ManageController@home')->name('home2');
-Route::get('/home2', 'ManageController@tampilTerbaru');
+//Route::get('/home', 'ManageController@home')->name('home');
+Route::get('/home', 'ManageController@tampilTerbaru');
 
 //---Produk Men
 Route::get('/menbajupendek', 'WebController@menbajupendek');
@@ -223,4 +223,4 @@ Auth::routes();
 route::get('/',function(){
     return view('auth/login');
 });
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home2', 'ManageController@tampilTerbaru')->name('home');

@@ -29,9 +29,9 @@ class LoginController extends Controller
     public function redirectTo(){
         $for=[
             'Administrator'=>'men',
-            'User'=>'home2',
+            'User'=>'home',
         ];
-        return $this->redirectTo=route($for[auth()->user()->roles]);
+        return $this->redirectTo = route($for[auth()->user()->roles]);
     }
 
     /**

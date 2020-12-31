@@ -15,18 +15,18 @@ class ManageController extends Controller
 //gate
 public function __construct()
 {
- //$this->middleware('auth');
- $this->middleware(function($request, $next){
+ $this->middleware('auth');
+ /*$this->middleware(function($request, $next){
  if(Gate::allows('user-display')) return $next($request);
  abort(403, 'Anda tidak memiliki cukup hak akses');
- });
+ }); */
 }
 
-    //home
+    /*home
     public function home(){
         return view('home2');
     }
-
+*/
 //------------------------Baru----------------------------
     //tampil produk terbaru home
     public function tampilTerbaru()
@@ -43,7 +43,6 @@ public function __construct()
     {
         $baru = Baru::all();
         return view ('manageProdukTerbaru', ['baru' => $baru]);
-
         $value = Cache::remember('barus', $seconds, function () {
             return DB::table('barus')->get();
         });
