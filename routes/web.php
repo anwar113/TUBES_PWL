@@ -234,8 +234,8 @@ route::get('/kid/jacket/transaksi/{id}','ManageController@addKidJacketTransaksi'
 	return view('addMenTransaksi');
 });
 */
-route::get('/transaksi/edit/{$id}','ManageController@editTransaksi');
-route::get('/transaksi/update/{id}','ManageController@updateTransaksi');
+route::get('/transaksi/edit/{id}','ManageController@editTransaksi');
+route::post('/transaksi/update/{id}','ManageController@updateTransaksi');
 route::get('/transaksi/delete/{id}','ManageController@deleteTransaksi');
 route::get('/transaksi/cetak_pdf','ManageController@cetakTransaksi');
 route::post('/men/transaksi/create','ManageController@createTransaksi');
@@ -251,9 +251,10 @@ Route::get('/manageUser', 'ManageController@manageUser');
 Route::get('/editUser/{id}','ManageController@editUser');
 Route::post('/updateUser/{id}','ManageController@updateUser');  
 Route::get('/deleteUser/{id}','ManageController@deleteUser'); 
-Route::get('/addUser','ManageController@addUser');
-Route::post('/createUser','ManageController@createUser');
+Route::get('/addUser','WebController@addUser');
+Route::post('/createUser','WebController@createUser');
 Route::get('/user/cetak_pdf', 'ManageController@cetakUser');
 route::get('/test',function(){
     return view('test');
 });
+route::get('/userRegister','ManageController@createUser');

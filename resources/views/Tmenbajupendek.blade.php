@@ -1,5 +1,6 @@
 @extends('master')
 @section('content')
+
 <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -46,3 +47,4 @@
   </div>
 
 @endsection
+

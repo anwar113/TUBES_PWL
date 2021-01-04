@@ -40,7 +40,7 @@
                 
                 <td>
                     <h5><a href="transaksi/edit/{{ $t->id }}" class="badge badge-warning"><i class="fas fa-edit"></i>Update Status</a>
-                    <a href="trasaksi/delete/{{ $t->id }}" class="badge badge-danger"><i class="fas fa-trash"></i> Hapus</a></h5>
+                    <a href="transaksi/delete/{{ $t->id }}" class="badge badge-danger"><i class="fas fa-trash"></i> Hapus</a></h5>
                 </td>
             </tr>
 	        @endforeach

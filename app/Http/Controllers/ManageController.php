@@ -13,6 +13,7 @@ use PDF;
 
 class ManageController extends Controller
 {
+ 
 //gate
 public function __construct()
 {
@@ -480,8 +481,29 @@ public function __construct()
         $transaksi =transaksi::all();
         $pdf = PDF::loadview('transaksi_pdf',['transaksi'=>$transaksi]);
         return $pdf->stream();
+
+        $value = Cache::remember('transaksis', $seconds, function () {
+            return DB::table('transaksis')->get();
     //----------------User
+        });
     }
+                //halaman tambah data produk baru
+                public function addUser()
+                {
+                    return view('addUser');
+                } 
+                //proses penambahan data produk baru
+              public function createUser(Request $request)
+                {
+                     User::create([
+                        'name' => $request->name,
+                        'email' => $request->email,
+                        'password'=>$request->password,
+                        'roles'=>$request->roles,
+                        'gambar' =>"img/UserPP.jpg"
+                    ]);
+                    return redirect('/manageUser');
+                }
     public function manageUser()
     {
         $user = User::all();
@@ -491,26 +513,6 @@ public function __construct()
             return DB::table('users')->get();
         });
     }
-    //halaman tambah data produk baru
-    public function addUser()
-    {
-        return view('addUser');
-    } 
-    //proses penambahan data produk baru
-  public function createUser(Request $request)
-    {
-        if($request->file('gambar')) {
-            $image_name = $request->file('gambar')->store('images','public');
-        }
-
-        Baru::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'roles'=>$request->roles,
-            'gambar' => $image_name,
-        ]);
-        return redirect('/manageUser');
-    } 
     //halaman edit data produk baru
     
     public function editUser($id)

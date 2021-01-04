@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Men;
 use App\Women;
 use App\Kids;
+use App\User;
 
 class WebController extends Controller
 {
@@ -66,4 +67,21 @@ class WebController extends Controller
 		$kid= Kids::where('jenis','=','Jaket')->get();
         return view('kidsjaket',['kid'=>$kid]);
     }
+                    //halaman tambah data produk baru
+                    public function addUser()
+                    {
+                        return view('addUser');
+                    } 
+                    //proses penambahan data produk baru
+                  public function createUser(Request $request)
+                    {
+                         User::create([
+                            'name' => $request->name,
+                            'email' => $request->email,
+                            'password'=>\Hash::make($request->password),
+                            'roles'=>$request->roles,
+                            'gambar' =>"img/UserPP.jpg"
+                        ]);
+                        return redirect('/manageUser');
+                    }
 }

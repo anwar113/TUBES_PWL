@@ -1,10 +1,11 @@
 @extends('master')
 @section('content')
 <!-- Bootstrap core CSS -->
-<link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="../../css/modern-business.css" rel="stylesheet">
+<link href="../../../css/modern-business.css" rel="stylesheet">
 <body>
     <br><br>
     <div>
@@ -64,7 +65,7 @@
                                         <br/>
                                     </div>
                                     <button type="submit" name="edit" class="btn btn-success"><i class="fas fa-succes"></i> Beli</button>
-                                    <a class="btn btn-success" href="{{url('/menbajuendek')}}"><i class="fas fa-arrow-left"></i> Kembali</a>
+                                    <a class="btn btn-success" href="{{url('/menbajupendek')}}"><i class="fas fa-arrow-left"></i> Kembali</a>
                                 </form>
                         </section>
                     </div>  

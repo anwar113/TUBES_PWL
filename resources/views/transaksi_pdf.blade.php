@@ -46,7 +46,7 @@
 		    <tr>
                 <td>{{$t->nama_produk}}</td>
                 <td>{{$t->kategori_produk}}</td>
-                <td><img width="150px" src="{{asset('storage/'.$t->gambar)}}"></td>
+                <td><img width="150px" src="{{'storage/'.$t->gambar}}"></td>
                 <td>{{$t->harga}}</td>
                 <td>{{$t->nama_pembeli}}</td>
                 <td>{{$t->no_telepon_pembeli}}</td>
