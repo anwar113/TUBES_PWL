@@ -214,11 +214,33 @@ Route::get('/sale', 'ManageController@kid');
 //tampil manage transaksi
 route::get('/manageTransaksi','ManageController@transaksi');
 //tambah transaksi
-route::get('/men/transaksi/{id}','ManageController@addMenTransaksi');
-route::get('/men/transaksi',function(){
+//---------
+route::get('/men/bajupanjang/transaksi/{id}','ManageController@addMenBajuPanjangTransaksi');
+route::get('/men/bajupendek/transaksi/{id}','ManageController@addMenBajuPendekTransaksi');
+route::get('/men/sweater/transaksi/{id}','ManageController@addMenSweaterTransaksi');
+route::get('/men/jacket/transaksi/{id}','ManageController@addMenJacketTransaksi');
+//---------
+route::get('/women/bajupanjang/transaksi/{id}','ManageController@addWomenBajuPanjangTransaksi');
+route::get('/women/bajupendek/transaksi/{id}','ManageController@addWomenBajuPendekTransaksi');
+route::get('/women/sweater/transaksi/{id}','ManageController@addWomenSweaterTransaksi');
+route::get('/women/jacket/transaksi/{id}','ManageController@addWomenJacketTransaksi');
+route::get('/women/gamis/transaksi/{id}','ManageController@addWomenGamisTransaksi');
+//-----------
+route::get('/kid/bajupanjang/transaksi/{id}','ManageController@addKidBajuPanjangTransaksi');
+route::get('/kid/bajupendek/transaksi/{id}','ManageController@addKidBajuPendekTransaksi');
+route::get('/kid/sweater/transaksi/{id}','ManageController@addKidSweaterTransaksi');
+route::get('/kid/jacket/transaksi/{id}','ManageController@addKidJacketTransaksi');
+/*route::get('/men/transaksi',function(){
 	return view('addMenTransaksi');
 });
+*/
+route::get('/transaksi/edit/{$id}','ManageController@editTransaksi');
+route::get('/transaksi/update/{id}','ManageController@updateTransaksi');
+route::get('/transaksi/delete/{id}','ManageController@deleteTransaksi');
+route::get('/transaksi/cetak_pdf','ManageController@cetakTransaksi');
 route::post('/men/transaksi/create','ManageController@createTransaksi');
+route::post('/women/transaksi/create','ManageController@createTransaksi');
+route::post('/kid/transaksi/create','ManageController@createTransaksi');
 Auth::routes();
 route::get('/',function(){
     return view('auth/login');
@@ -232,4 +254,6 @@ Route::get('/deleteUser/{id}','ManageController@deleteUser');
 Route::get('/addUser','ManageController@addUser');
 Route::post('/createUser','ManageController@createUser');
 Route::get('/user/cetak_pdf', 'ManageController@cetakUser');
-
+route::get('/test',function(){
+    return view('test');
+});

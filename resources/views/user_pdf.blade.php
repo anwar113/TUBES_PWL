@@ -22,7 +22,7 @@
 <body>
 
     <center>
-            <h5>Laporan Data Produk Women</h5>
+            <h5>Laporan Data User</h5>
         </center>
         <br>
 
@@ -31,23 +31,19 @@
                 <tr class="table-secondary">
                     <th width="20">No</th>
                     <th width="70">Nama</th>
-                    <th width="100">Keterangan</th>
-                    <th width="50">Harga</th>
-                    <th width="30">Ukuran</th>
-                    <th width="30">Stok</th>
+                    <th width="100">Email</th>
+                    <th width="50">Roles</th>
                     <th width="100">Gambar</th>
                 </tr>
             </thead>
             <tbody>
                 @php $i=1 @endphp
-                @foreach($kid as $k)
+                @foreach($user as $k)
                 <tr>
                     <td>{{ $i++ }}</td>
-                    <td>{{$k->nama_produk}}</td>
-                    <td>{{$k->keterangan}}</td>
-                    <td>{{$k->harga}}</td>
-                    <td>{{$k->ukuran}}</td>
-                    <td>{{$k->stok}}</td>
+                    <td>{{$k->name}}</td>
+                    <td>{{$k->email}}</td>
+                    <td>{{$k->roles}}</td>
                     <td><img width="200" src="{{'storage/'.$k->gambar}}"></td>
                 </tr>
                 @endforeach

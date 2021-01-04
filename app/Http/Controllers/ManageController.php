@@ -366,10 +366,73 @@ public function __construct()
         });
     }
     //tambah transaksi
-    public function addMenTransaksi($id){
+    //------Men
+    public function addMenBajuPanjangTransaksi($id){
         $men=Men::find($id);
-        return view('addMenTransaksi',['men'=>$men]);
+        return view('addMenBajuPanjangTransaksi',['men'=>$men]);
     }
+    //--
+    public function addMenBajuPendekTransaksi($id){
+        $men=Men::find($id);
+        return view('addMenBajuPendek',['men'=>$men]);
+    }
+    //---
+    public function addMenSweaterTransaksi($id){
+        $men=Men::find($id);
+        return view('addMenSweater',['men'=>$men]);
+    }
+    //----
+    public function addMenJacketTransaksi($id){
+        $men=Men::find($id);
+        return view('addMenJacket',['men'=>$men]);
+    }
+    //--Women-----
+    public function addWomenBajuPanjangTransaksi($id){
+        $women=Women::find($id);
+        return view('addWomenBajuPanjang',['women'=>$women]);
+    }
+    //--
+    public function addWomenBajuPendekTransaksi($id){
+        $women=Women::find($id);
+        return view('addWomenBajuPendek',['women'=>$women]);
+    }
+    //---
+    public function addWomenSweaterTransaksi($id){
+        $women=Women::find($id);
+        return view('addWomenSweater',['women'=>$women]);
+    }
+    //--
+    public function addWomenGamisTransaksi($id){
+        $women=Women::find($id);
+        return view('addWomenGamis',['women'=>$women]);
+    }
+    //----
+    public function addWomenJacketTransaksi($id){
+        $men=Women::find($id);
+        return view('addMenJacket',['men'=>$men]);
+    }
+    //----Kid
+    public function addKidBajuPanjangTransaksi($id){
+        $kid=Kids::find($id);
+        return view('addKidBajuPanjangTransaksi',['kid'=>$kid]);
+    }
+    //--
+    public function addKidBajuPendekTransaksi($id){
+        $kid=Kids::find($id);
+        return view('addKidBajuPendek',['kid'=>$kid]);
+    }
+    //---
+    public function addKidSweaterTransaksi($id){
+        $kid=Kids::find($id);
+        return view('addKidSweater',['kid'=>$kid]);
+    }
+    //----
+    public function addKidJacketTransaksi($id){
+        $kid=Kids::find($id);
+        return view('addKidJacket',['kid'=>$kid]);
+    }
+
+
     //proses tambah transaksi
     public function createTransaksi(Request $request){
         //$total_harga==$request->harga*$request->jumlah_beli;
@@ -391,12 +454,34 @@ public function __construct()
             'alamat_pembeli'=> $request->alamat_pembeli,
 
         ]);
-        return redirect('/transaksi/sukses');
+        return view('transaksiSukses');
     }
-
-
+    public function editTransaksi($id)
+    {
+        $transaksi = transaksi::find($id);
+        return view('editTransaksi',['transaksi'=>$transaksi]);
+    }
+    ///update
+    public function updateTransaksi($id, Request $request)
+    {
+        $transaksi =transaksi::find($id);
+        $transaksi->Status = $request->Status;        
+        $transaksi->save();
+        return redirect('/manageTransaksi');
+    }
+    public function deleteTransaksi($id)
+    {
+        $transaksi =transaksi::find($id);
+        $transaksi->delete();
+        return redirect('/manageTransaksi');
+    }
+    //cetak pdf produk baru
+    public function cetakTransaksi() {
+        $transaksi =transaksi::all();
+        $pdf = PDF::loadview('transaksi_pdf',['transaksi'=>$transaksi]);
+        return $pdf->stream();
     //----------------User
-    
+    }
     public function manageUser()
     {
         $user = User::all();
