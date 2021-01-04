@@ -1,10 +1,11 @@
 @extends('master')
 @section('content')
 <!-- Bootstrap core CSS -->
-<link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="../../css/modern-business.css" rel="stylesheet">
+<link href="../../../css/modern-business.css" rel="stylesheet">
 <body>
     <br><br>
     <div>
@@ -15,11 +16,11 @@
             <div class="card my-8">
                 <div class="row" >
                     <div class="col-lg-8">
-                    <img width="150px" src="{{asset('storage/'.$men->gambar)}}">
+                    <img width="150px" src="{{asset('storage/'.$women->gambar)}}">
                     </div> 
                     <div class="col-lg-4" align="left">
-                        <p>Nama Produk :{{$men->nama_produk}}</p><br>
-                        <p>Harga       :{{$men->harga}}</p><br>
+                        <p>Nama Produk :{{$women->nama_produk}}</p><br>
+                        <p>Harga       :{{$women->harga}}</p><br>
                     </div>
                 </div>
             </div>
@@ -27,14 +28,13 @@
         <div class="row">
                                       <div class="col-lg-8" >
                         <section class="page-section bg-light">
-                                <form action="/men/transaksi/create" method="post" enctype="multipart/form-data">
+                                <form action="/women/transaksi/create" method="post" enctype="multipart/form-data">
                                     @csrf
-                                    <input type="hidden" name="id_produk" value="{{$men->id}}"><br>
-
-                                    <input type="hidden" name="nama_produk" value="{{$men->nama_produk}}">
-                                    <input type="hidden" name="kategori_produk" value="Men">
-                                    <input type="hidden" name="gambar" value="{{$men->gambar}}">
-                                    <input type="hidden" name="harga" value="{{$men->harga}}">
+                                    <input type="hidden" name="id_produk" value="{{$women->id}}"><br>
+                                    <input type="hidden" name="nama_produk" value="{{$women->nama_produk}}">
+                                    <input type="hidden" name="kategori_produk" value="Women">
+                                    <input type="hidden" name="gambar" value="{{$women->gambar}}">
+                                    <input type="hidden" name="harga" value="{{$women->harga}}">
                                     <input type="hidden" name="status" value="Pending">
                                     <input type="hidden" name="total_harga" value="0">
                                     <br/>
@@ -64,7 +64,7 @@
                                         <br/>
                                     </div>
                                     <button type="submit" name="edit" class="btn btn-success"><i class="fas fa-succes"></i> Beli</button>
-                                    <a class="btn btn-success" href="{{url('/menbajupanjang')}}"><i class="fas fa-arrow-left"></i> Kembali</a>
+                                    <a class="btn btn-success" href="{{url('/womenbajupendek')}}"><i class="fas fa-arrow-left"></i> Kembali</a>
                                 </form>
                         </section>
                     </div>  

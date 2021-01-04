@@ -5,8 +5,8 @@
   <section class="page-section bg-light center">
   <div class="container">
     <div class="tombol float-left">
-        <a href="/addUsertransaksi" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Data</a>
-        <a href="kid/cetak_pdf" class="btn btn-success" target="_blank"><i class="fas fa-print"></i> Cetak PDF</a>
+        <a href="/addUser" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Data</a>
+        <a href="user/cetak_pdf" class="btn btn-success" target="_blank"><i class="fas fa-print"></i> Cetak PDF</a>
     </div>
     <br>
     <br>

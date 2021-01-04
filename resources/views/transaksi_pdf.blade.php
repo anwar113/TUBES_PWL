@@ -1,15 +1,32 @@
-@extends('master')
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Online Shop || E-Commerce</title>
+
+  <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/modern-business.css" rel="stylesheet">
+
+</head>
+
 <body>
-  <br><br> 
-  <section class="page-section bg-light center">
-  <div class="container">
-    <div class="tombol float-left">
-        <a href="transaksi/cetak_pdf" class="btn btn-success" target="_blank"><i class="fas fa-print"></i> Cetak PDF</a>
-    </div>
-    <br>
-    <br>
-    <table class="table-bordered">
+
+    <center>
+            <h5>Laporan Data Transaksi</h5>
+        </center>
+        <br>
+
+        <table class="table-bordered">
         <thead>
             <tr>
                 <th width="200">Nama Produk</th>
@@ -29,7 +46,7 @@
 		    <tr>
                 <td>{{$t->nama_produk}}</td>
                 <td>{{$t->kategori_produk}}</td>
-                <td><img width="150px" src="{{asset('storage/'.$t->gambar)}}"></td>
+                <td><img width="150px" src="{{'storage/'.$t->gambar}}"></td>
                 <td>{{$t->harga}}</td>
                 <td>{{$t->nama_pembeli}}</td>
                 <td>{{$t->no_telepon_pembeli}}</td>
@@ -40,14 +57,22 @@
                 
                 <td>
                     <h5><a href="transaksi/edit/{{ $t->id }}" class="badge badge-warning"><i class="fas fa-edit"></i>Update Status</a>
-                    <a href="transaksi/delete/{{ $t->id }}" class="badge badge-danger"><i class="fas fa-trash"></i> Hapus</a></h5>
+                    <a href="trasaksi/delete/{{ $t->id }}" class="badge badge-danger"><i class="fas fa-trash"></i> Hapus</a></h5>
                 </td>
             </tr>
 	        @endforeach
         </tbody>
     </table>
-    </div>
-    </section>
-    <br><br>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
-@endsection
+
+</html>
+
+
+
+

@@ -20,7 +20,7 @@
         </p>
           <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
           <br></br>
-          <a href="/men/transaksi/{{$barang->id}}" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> beli</a>
+          <a href="/men/bajupanjang/transaksi/{{$barang->id}}" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> beli</a>
       </div>
     </div>
   </div>
