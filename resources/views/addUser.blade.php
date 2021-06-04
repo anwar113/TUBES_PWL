@@ -47,6 +47,7 @@
         <form action="/createUser" method="post"> 
             @csrf 
             <input type="hidden" name="roles" value="User">
+            <input type="hidden" name="gambar" value="{{$user->gambar}}">
             <div class="form-group"> 
                 <label for="name">Nama</label>                 
                 <input type="text" class="form-control" required="required" name="name"></br> 
@@ -60,6 +61,8 @@
                 <input type="password" class="form-control" required="required" name="password"></br> 
             </div>
             <button type="submit" name="add" class="btn btn-primary float-right">Submit Data</button>        
+             </form> 
+             <a class="btn btn-success" href="{{url('/')}}"><i class="fas fa-arrow-left"></i> Kembali</a>
              </form> 
              <br></br>
              </div>

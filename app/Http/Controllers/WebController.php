@@ -70,7 +70,8 @@ class WebController extends Controller
                     //halaman tambah data produk baru
                     public function addUser()
                     {
-                        return view('addUser');
+                        $user=User::find('2');
+                        return view('addUser',['user'=>$user]);
                     } 
                     //proses penambahan data produk baru
                   public function createUser(Request $request)
@@ -80,8 +81,8 @@ class WebController extends Controller
                             'email' => $request->email,
                             'password'=>\Hash::make($request->password),
                             'roles'=>$request->roles,
-                            'gambar' =>"img/UserPP.jpg"
+                            'gambar' =>$request->gambar,
                         ]);
-                        return redirect('/manageUser');
+                        return redirect('/');
                     }
 }

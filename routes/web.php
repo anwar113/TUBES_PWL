@@ -206,9 +206,6 @@ Route::get('/howToBuy', 'ManageController@howToBuy');
 
 //route untuk sale
 Route::get('/sale', 'ManageController@sale');
-Route::get('/sale', 'ManageController@men');
-Route::get('/sale', 'ManageController@women');
-Route::get('/sale', 'ManageController@kid');
 
 //---------Transaksi----------------------
 //tampil manage transaksi

@@ -352,7 +352,9 @@ public function __construct()
     //-------------------sale------------------
     //tampil sale
     public function sale(){
-        return view('sale');
+        $men=Men::all();
+        $women=Women::all();
+        return view('sale',['men'=>$men],['women'=>$women]);
     }
 
 
@@ -415,7 +417,7 @@ public function __construct()
     //----Kid
     public function addKidBajuPanjangTransaksi($id){
         $kid=Kids::find($id);
-        return view('addKidBajuPanjangTransaksi',['kid'=>$kid]);
+        return view('addKidBajuPanjang',['kid'=>$kid]);
     }
     //--
     public function addKidBajuPendekTransaksi($id){
