@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -65,3 +66,5 @@
                     </form>
                 </div>
 @endsection
+=======
+>>>>>>> b7e07e3f22161a7ce6e4e38a62fa7eba711d1b88

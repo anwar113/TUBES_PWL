@@ -417,7 +417,11 @@ public function __construct()
     //----Kid
     public function addKidBajuPanjangTransaksi($id){
         $kid=Kids::find($id);
+<<<<<<< HEAD
         return view('addKidBajuPanjang',['kid'=>$kid]);
+=======
+        return view('addKidBajuPanjangTransaksi',['kid'=>$kid]);
+>>>>>>> b7e07e3f22161a7ce6e4e38a62fa7eba711d1b88
     }
     //--
     public function addKidBajuPendekTransaksi($id){

@@ -47,7 +47,10 @@
         <form action="/createUser" method="post"> 
             @csrf 
             <input type="hidden" name="roles" value="User">
+<<<<<<< HEAD
             <input type="hidden" name="gambar" value="{{$user->gambar}}">
+=======
+>>>>>>> b7e07e3f22161a7ce6e4e38a62fa7eba711d1b88
             <div class="form-group"> 
                 <label for="name">Nama</label>                 
                 <input type="text" class="form-control" required="required" name="name"></br> 
